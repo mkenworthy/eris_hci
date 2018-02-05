@@ -11,7 +11,7 @@
 %%% PUT IN YOUR METIS DOCUMENT NUMBERS IN THE COMMANDS BELOW  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\DocTitle}{VLT Pupil Geometry and HCI Pupil Mask Sizes}
+\newcommand{\DocTitle}{VLT Pupil Geometry and HCI Pupil Masks}
 \newcommand{\DocNum}{}
 \newcommand{\DocIssue}{v2}
 \newcommand{\IssueDate}{22 Jan 2018}
@@ -163,7 +163,7 @@ Approved: &                   &            &           \\
 
 \section*{Revision History}
 
-\begin{tabular}{@{}rlll@{}}\toprule
+\begin{tabular}{l l l l}\toprule
 Issue  	& Date 		& Section/Page affected & Reason/Remarks \\ \midrule
 v2 	& 22.01.2018 	& All 			& Converted from Google Doc \\
 \bottomrule
@@ -186,7 +186,7 @@ v2 	& 22.01.2018 	& All 			& Converted from Google Doc \\
 
 \subsection{Applicable and Reference Documents}
 
-\begin{tabular}{@{}lllll@{}}
+\begin{tabular}{@{}lp{6cm}lll@{}}
 \toprule
 RD 	& Title 							& Reference & Issue & Date \\
 \midrule
@@ -239,8 +239,9 @@ An engineering drawing from the VLT shows the location of the secondary support 
 
 
 
-\begin{tabular}{@{}llll@{}}
-%\caption{Relevant radii of optical components in ERIS and the VLT.}
+\begin{table}[h]
+
+\begin{tabular}{@{}p{1cm} p{7cm} l p{5cm}@{}}
 \toprule
 Radius (mm)& Relevant optical component & Reference & Notes \\
 \midrule
@@ -252,6 +253,8 @@ Radius (mm)& Relevant optical component & Reference & Notes \\
 558 & M2 mirror diameter & & \\
 \bottomrule
 \end{tabular}
+\caption{ \label{tab:tablesadf} Relevant radii of optical components in ERIS and the VLT.}
+\end{table}
 
 
 We define a coordinate system centred on the middle of the primary mirror. The
@@ -284,32 +287,42 @@ telescope components, the pupil is undersized for two effects - the reimaging
 out of pupil plane of the pupil, and for the alignment and flexure budget of
 ERIS.
 
-Two movable wheels are on either side of the pupil location in ERIS. The
-Optical interface is shown in the Figure below. In this figure, light from the
-telescope comes from the right, passes through a tilted filter, then the Pupil
+Two movable wheels are on either side of the pupil location in ERIS (see
+Figure~\ref{fig:wheels}). In this figure, light from the
+telescope comes from the {\bf right}, passes through a tilted filter, then the Pupil
 plane has a fixed cold aperture of 13mm in place, and then the pupil wheel
 where the gvAPP optic will be located.
 
+\begin{figure}[htp]
+\centering
+\includegraphics[angle=0,width=\columnwidth]{optical_interface}
+\caption{ \label{fig:wheels} Optical interface of the PFW. Figure from
+R2.}
+\end{figure}
 
-The geometry of the gvAPP for ERIS is shown in the figure below - sent by Jason
+The geometry of the gvAPP for ERIS is shown in Figure~\ref{fig:gvapp} - sent by Jason
 Kekas in 2018 Jan 18 email. Matt K local link
 
 \begin{figure}[htp]
 \centering
-\includegraphics[angle=0,width=\columnwidth]{metis_cfo2_and_cameras}
-\caption{ \label{mov} METIS Optical Overview with CFO2 (from Tibor Agocs).}
+\includegraphics[angle=0,width=0.7\columnwidth]{21mmOption_with_cover-02}
+\caption{ \label{fig:gvapp} Assembly diagram of the gvAPP for ERIS.}
 \end{figure}
-
-
 
 \section{Size of the pupil in the pupil plane}
 
 The image of the outer edge in the pupil plane is not a sharp transition, but
 goes from 100 to 0 percent transmission from 5.8mm to 6.3mm. We define the
 radius of the pupil image in ERIS Camera 3 to be 6.025mm, by visual inspection
-of Figure 5 of RD2 for the half power point of the L band curves (see Figure
-1).
+of Figure 5 of RD2 for the half power point of the L band curves (see
+Figure~\ref{fig:radpup}).
 
+\begin{figure}[htp]
+\centering
+\includegraphics[angle=0,width=0.7\columnwidth]{pupil_cut}
+\caption{ \label{fig:radpup} Figure 5 from RD2 showing a radial cut
+through the raytraced image.}
+\end{figure}
 
 The 6.025mm was checked in ZEMAX and found to be 6.009mm. The 6.025mm number
 was kept for the rest of the calculations.  Size of the pupil in the plane of
@@ -343,8 +356,16 @@ The gvAPP is not in the pupil plane, so there is a lateral shift of the pupil im
 
 \subsection{Tolerances of ERIS alignment}
 
-There is an additional amount of uncertainty in the location of the ERIS pupil image in the pupil wheel, due to flexure and reattachment tolerances in the design, estimated in Table 2. This adds another 154 microns of blurring to the resultant pupil mask.
+There is an additional amount of uncertainty in the location of the ERIS
+pupil image in the pupil wheel, due to flexure and reattachment
+tolerances in the design, estimated in Table~\ref{tab:errors}. This adds another 154 microns of blurring to the resultant pupil mask.
 
+\begin{figure}[htp]
+\centering
+\includegraphics[angle=0,width=0.7\columnwidth]{error_budget}
+\caption{ \label{tab:errors} Contributions to the error budget in the
+location of the telescope pupil in ERIS.}
+\end{figure}
 
 \section{Additional warm structures in the VLT pupil}
 
@@ -354,21 +375,42 @@ The Deformable Secondary Mirror will replace M2 in the future, and its diameter 
 
 The width of the spider arms are 40mm.
 
-Light from the sky can go past the side barrel of M2 and go directly into wide field visible wavelength instruments, adding to the sky background. This is an issue for instruments such as MUSE, and to prevent this direct line of sight propagation, a sky baffle is added around the barrel of M2. This baffle is uncooled, and appears as a warm emissive surface in the field of view of ERIS at thermal wavelengths.
+Light from the sky can go past the side barrel of M2 and go directly
+into wide field visible wavelength instruments, adding to the sky
+background. This is an issue for instruments such as MUSE, and to
+prevent this direct line of sight propagation, a sky baffle is added
+around the barrel of M2. This baffle is uncooled, and appears as a warm
+emissive surface in the field of view of ERIS at thermal wavelengths.
 
 The radius of this baffle is 775mm.
-An overlay of the pupil generated in A is shown overlaid on the VLT VISIR pupil image. It can be seen that the ERIS pupil matches the secondary support structure, the M3 baffle and the expected radius of the M2 sky baffle.
 
+An overlay of the pupil generated in A is shown overlaid on the VLT
+VISIR pupil image in Figure~\ref{fig:visir}. It can be seen that the
+ERIS pupil matches the secondary support structure, the M3 baffle and
+the expected radius of the M2 sky baffle.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[angle=0,width=0.7\columnwidth]{vlt_visir_pupil}
+\caption{ \label{fig:visir} The VLT UT4 pupil as seen by VISIR.}
+\end{figure}
 
 \section{Code to generate the gvAPP pupils}
 
-The Python code \url{ERIS_pupil_tight_ZEMAX_corrected_SkyBaffle.py} generates three pupil masks based on the discussions above. They are labelled \url{VLT_ERIS_pupil_X_*.fits}
-...where X is a letter A, B, or D. These are described in the table below. We use D for the design of the gvAPP ERIS pupil. The code produces the masks with a pixel size of 5 microns. The demagnification is currently hard-coded in the pixel size in the code, so it is inconsistent with the real pixel size. The box and sky baffle are slightly demagnified but the kernel convolution overwhelms this demagnification factor.
+The Python code \url{ERIS_pupil_tight_ZEMAX_corrected_SkyBaffle.py}
+generates three pupil masks based on the discussions above. They are
+labelled \url{VLT_ERIS_pupil_X_*.fits} ...where X is a letter A, B, or
+D described in Table~\ref{tab:programs}. We use D for the design of
+the gvAPP ERIS pupil. The code produces the masks with a pixel size of 5
+microns. The demagnification is currently hard-coded in the pixel size
+in the code, so it is inconsistent with the real pixel size. The box and
+sky baffle are slightly demagnified but the kernel convolution
+overwhelms this demagnification factor.
 
 
 
-
-\begin{tabular}{@{}llll@{}}
+\begin{table}[h]
+\begin{tabular}{@{}p{5cm}p{10cm}@{}}
 \toprule
 Pupil mask & Comment \\
 \midrule
@@ -376,21 +418,50 @@ Pupil mask & Comment \\
 	\url{VLT_ERIS_pupil_B_undersized_out_of_pupil_plane_SkyBaffle} & B is blurred by the kernel for out of pupil plane field dependencies with +/- 5 arcsec field of view (110 microns total kernel size). \\
 	\url{VLT_ERIS_pupil_D_tightly_undersized_ZEMAX_corrected_SkyBaffle} & D is convolved with an additional 154 micron kernel for the flexure and combination of alignment tolerances. This is the mask that should be used. \\
 \bottomrule
-	{\label{tab1} Relevant radii of optical components in ERIS and the VLT.}
 \end{tabular}
-
+\caption{\label{tab:programs} Python script names and the description of the
+pupils they produce.}
+\end{table}
 
 \section{Orientation of mask with respect to the optical path}
 
-The addition of the M3 baffle to mask out the M3 baffle means that the symmetry of the mask is broken, and the orientation with respect to the gvAPP glass subtrates needs to be determined. We use a ZEMAX drawing of ERIS optics with Camera 3 in the beam, and photos of UT4 to derive the orientation of the masks. The python code generates the pupil to be consistent with the VISIR orientation and needs to be rotated by 90 degrees to match the orientation of the chromium pupil mask shown below. 
+The addition of the M3 baffle to mask out the M3 baffle means that the
+symmetry of the mask is broken, and the orientation with respect to the
+gvAPP glass subtrates needs to be determined.
+%
+We use a ZEMAX drawing of ERIS optics with Camera 3 in the beam, and
+photos of UT4 to derive the orientation of the masks in
+Figure~\ref{fig:eris}.
+%
+The python code generates the pupil to be consistent with the VISIR
+orientation and needs to be rotated by 90 degrees to match the
+orientation of the chromium pupil mask shown below.
 
+\begin{figure}[htp]
+\centering
+\includegraphics[angle=0,width=\columnwidth]{ERIS_Conf3_Layout}
+\caption{ \label{fig:eris} The ERIS optical layout from the ZEMAX
+file.}
+\end{figure}
 
+The appropriate configurations for the mask substrate and the liquid
+crystal substrate are shown in Figure~\ref{fig:vltmap1} and \ref{fig:vltmap2}.
 
-This is an image of the raytraced ZEMAX configuration for ERIS.
+\begin{figure}[htp]
+\centering
+\includegraphics[angle=0,width=\columnwidth]{app_layout_p1}
+\caption{ \label{fig:vltmap1} The optical path of VLT and ERIS
+showing the relative orientation of the UT4 pupil with respect to the
+pupil wheel.}
+\end{figure}
 
+\begin{figure}[htp]
+\centering
+\includegraphics[angle=0,width=\columnwidth]{app_layout_p2}
+\caption{ \label{fig:vltmap2} Detail of the optical path and assembly of
+the gvAPP mask.}
+\end{figure}
 
-
-The appropriate configurations for the mask substrate and the liquid crystal substrate are shown in the bottom figure.
 
 \bibliographystyle{nsf}
 \bibliography{apj-jour,kenworthy}
