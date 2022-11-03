@@ -120,3 +120,13 @@ print(f'Writing image out to {fout}')
 hdu2 = fits.PrimaryHDU(normPSFrot)
 hdu2.writeto(fout, overwrite=True)
 
+
+wlen0, bwidth, filtname = 2.17, 0.02, "B_M" # central wavelength and FWHM bwidth of the filter (microns)
+wlen0=(4.49+5.06)/2
+bwidth = 5.06-4.49
+normPSFrot = make_ERIS_PSF(wlen0,bwidth,Npix)
+fout = f'ERIS_gvAPP_PSF_{filtname}_{wlen0}_{bwidth}.fits'
+print(f'Writing image out to {fout}')
+hdu2 = fits.PrimaryHDU(normPSFrot)
+hdu2.writeto(fout, overwrite=True)
+
